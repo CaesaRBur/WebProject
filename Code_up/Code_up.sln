@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Code_up", "..\Code_up", "{9EA08C39-5B47-4FF1-9512-36FE4A137546}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Code_up"
+		Debug.AspNetCompiler.PhysicalPath = "..\Code_up\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Code_up\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Code_up"
+		Release.AspNetCompiler.PhysicalPath = "..\Code_up\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Code_up\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2613"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F3B369F9-D288-4CFA-90AA-4DA5B1796B1A}"
+	ProjectSection(SolutionItems) = preProject
+		Code_up.vsmdi = Code_up.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{2E330F00-0346-4250-9922-92DE17CCA093}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Code_up.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EA08C39-5B47-4FF1-9512-36FE4A137546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA08C39-5B47-4FF1-9512-36FE4A137546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA08C39-5B47-4FF1-9512-36FE4A137546}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA08C39-5B47-4FF1-9512-36FE4A137546}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2E330F00-0346-4250-9922-92DE17CCA093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E330F00-0346-4250-9922-92DE17CCA093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E330F00-0346-4250-9922-92DE17CCA093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E330F00-0346-4250-9922-92DE17CCA093}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

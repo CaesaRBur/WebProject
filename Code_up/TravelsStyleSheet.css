@@ -1,0 +1,89 @@
+﻿
+.FontBoldBlueColor
+{
+	font-family: Tahoma;
+	richness: 100;
+	font-size: 0.8em;
+	font-weight: bold;
+	padding: .8em 0 0.5em 0;
+	color: #0080db;
+}
+
+.FontDesription
+{
+	font-family: Tahoma;
+	richness: 100;
+	font-size: 0.8em;
+	padding: .8em 0 0.5em 0;
+	color: #C0C0C0;
+}
+.FontBold
+{
+	font-family: Tahoma;
+	richness: 100;
+	font-size: 0.8em;
+	font-weight: bold;
+	padding: .8em 0 0.5em 0;
+	color: #000000;
+}
+
+.TdBlue
+{
+	width: 100%;
+	background-color: #0080db;
+	height:20px;
+}
+.accordionHeader
+{
+    border: 1px solid #2F4F4F;
+    color: white;
+    background-color: #0080db;
+	font-family: Arial, Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.FontBoldwhite
+{
+	font-family: Tahoma;
+	richness: 100;
+	font-size: 0.8em;
+	font-weight: bold;
+	padding: .8em 0 0.5em 0;
+	color: #FFFFFF;
+}
+
+.unwatermarked {
+	height:18px;
+	width:148px;
+	font-weight:bold;
+}
+
+.watermarked {
+	
+	padding:2px 0 0 2px;
+	border:1px solid #BEBEBE;
+	background-color:#F0F8FF;
+	color:gray;
+	text-align:center;
+}	
+
+.buttonc
+{
+	border-right: #9dc3ea 1px solid;
+	border-top: #9dc3ea 1px solid;
+	font-weight: bold;
+	font-size: 11px;
+	background-image: url(ss-02.gif);
+	border-left: #9dc3ea 1px solid;
+	width: 100px;
+	cursor: hand;
+	color: #006699;
+	border-bottom: #9dc3ea 1px solid;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	height: 22px;
+	background-color: #ccffff;
+}
