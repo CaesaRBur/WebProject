@@ -1,0 +1,425 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+
+public partial class Admin_frmAddServices : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            bindDDL();
+        }
+       
+
+    }
+
+    private void bindDDL()
+    {
+        BusinessLogic.AdminBL objBusinessLogic = new BusinessLogic.AdminBL();
+
+        DataSet ds = new DataSet();
+        ds = objBusinessLogic.ddlCityList();
+
+        DataSet ds1 = new DataSet();
+        ds = objBusinessLogic.ddlCityList();
+        ds1 = objBusinessLogic.ddlCoachList();
+
+        ddlFromCity.DataSource = ds.Tables[0];
+        ddlFromCity.DataTextField = "cityName";
+        ddlFromCity.DataValueField = "cityId";
+        ddlFromCity.DataBind();
+        ddlToCity.DataSource = ds.Tables[0];
+        ddlToCity.DataTextField = "cityName";
+        ddlToCity.DataValueField = "cityId";
+        ddlToCity.DataBind();
+        ddlCoachType.DataSource = ds1.Tables[0];
+        ddlCoachType.DataTextField = "coachName";
+        ddlCoachType.DataValueField = "coachId";
+        ddlCoachType.DataBind();
+        ddlAddServiceStop1.DataSource = ds1.Tables[0];
+        ddlAddServiceStop1.DataTextField = "coachName";
+        ddlAddServiceStop1.DataValueField = "coachId";
+        ddlAddServiceStop1.DataBind();
+        ddlAddServiceStop2.DataSource = ds1.Tables[0];
+        ddlAddServiceStop2.DataTextField = "coachName";
+        ddlAddServiceStop2.DataValueField = "coachId";
+        ddlAddServiceStop2.DataBind();
+        ddlAddServiceStop3.DataSource = ds1.Tables[0];
+        ddlAddServiceStop3.DataTextField = "coachName";
+        ddlAddServiceStop3.DataValueField = "coachId";
+        ddlAddServiceStop3.DataBind();
+        ddlAddServiceStop4.DataSource = ds1.Tables[0];
+        ddlAddServiceStop4.DataTextField = "coachName";
+        ddlAddServiceStop4.DataValueField = "coachId";
+        ddlAddServiceStop4.DataBind();
+        ddlAddServiceStop5.DataSource = ds1.Tables[0];
+        ddlAddServiceStop5.DataTextField = "coachName";
+        ddlAddServiceStop5.DataValueField = "coachId";
+        ddlAddServiceStop5.DataBind();
+        ddlAddServiceStop6.DataSource = ds1.Tables[0];
+        ddlAddServiceStop6.DataTextField = "coachName";
+        ddlAddServiceStop6.DataValueField = "coachId";
+        ddlAddServiceStop6.DataBind();
+         ddlAddServiceStop7.DataSource = ds1.Tables[0];
+         ddlAddServiceStop7.DataTextField = "coachName";
+         ddlAddServiceStop7.DataValueField = "coachId";
+         ddlAddServiceStop7.DataBind();
+         ddlAddServiceStop8.DataSource = ds1.Tables[0];
+         ddlAddServiceStop8.DataTextField = "coachName";
+         ddlAddServiceStop8.DataValueField = "coachId";
+         ddlAddServiceStop8.DataBind();
+         ddlAddServiceStop9.DataSource = ds1.Tables[0];
+         ddlAddServiceStop9.DataTextField = "coachName";
+         ddlAddServiceStop9.DataValueField = "coachId";
+         ddlAddServiceStop9.DataBind();
+         ddlAddServiceStop10.DataSource = ds1.Tables[0];
+         ddlAddServiceStop10.DataTextField = "coachName";
+         ddlAddServiceStop10.DataValueField = "coachId";
+         ddlAddServiceStop10.DataBind();
+         ddlAddServiceStop11.DataSource = ds1.Tables[0];
+         ddlAddServiceStop11.DataTextField = "coachName";
+         ddlAddServiceStop11.DataValueField = "coachId";
+         ddlAddServiceStop11.DataBind();
+         ddlAddServiceStop12.DataSource = ds1.Tables[0];
+         ddlAddServiceStop12.DataTextField = "coachName";
+         ddlAddServiceStop12.DataValueField = "coachId";
+         ddlAddServiceStop12.DataBind();
+         ddlAddServiceStop13.DataSource = ds1.Tables[0];
+         ddlAddServiceStop13.DataTextField = "coachName";
+         ddlAddServiceStop13.DataValueField = "coachId";
+         ddlAddServiceStop13.DataBind();
+         ddlAddServiceStop14.DataSource = ds1.Tables[0];
+         ddlAddServiceStop14.DataTextField = "coachName";
+         ddlAddServiceStop14.DataValueField = "coachId";
+         ddlAddServiceStop14.DataBind();
+         ddlAddServiceStop15.DataSource = ds1.Tables[0];
+         ddlAddServiceStop15.DataTextField = "coachName";
+         ddlAddServiceStop15.DataValueField = "coachId";
+         ddlAddServiceStop15.DataBind();
+
+
+    }
+
+
+    
+   
+
+
+    protected void chbAllDays_CheckedChanged(object sender, EventArgs e)
+    {
+        if (chbAllDays.Checked == true)
+        {
+            chbSunday.Checked = true;
+            chbMonday.Checked = true;
+            chbTuesday.Checked = true;
+            chbWenesday.Checked = true;
+            chbThursday.Checked = true;
+            chbFriday.Checked = true;
+            chbSaturday.Checked = true;
+        }
+        if (chbAllDays.Checked == false)
+        {
+            chbSunday.Checked = false;
+            chbMonday.Checked = false;
+            chbTuesday.Checked = false;
+            chbWenesday.Checked = false;
+            chbThursday.Checked = false;
+            chbFriday.Checked = false;
+            chbSaturday.Checked = false;
+        }
+    }
+    
+   
+   
+
+    protected void lbtnAddMoreBoardingStops_Click(object sender, EventArgs e)
+    {
+        pnlAdditionalBoardingStops.Visible = true;
+        lbtnAddMoreBoardingStops.Visible = false;
+      
+    }
+    protected void lbtnAddMoreServiceStops_Click(object sender, EventArgs e)
+    {
+        pnlAdditionalServiceStops.Visible = true;
+        lbtnAddMoreServiceStops.Visible = false;
+    }
+
+
+
+
+    protected void btnFinish_Click(object sender, EventArgs e)
+    {
+        DataModel.AdminDM objDataModel = new DataModel.AdminDM();
+        BusinessLogic.AdminBL objBusinessLogic = new BusinessLogic.AdminBL();
+
+        //Basic service information
+        objDataModel._serviceNumber = txtServiceNumber.Text.Trim();
+        objDataModel._coachId = ddlCoachType.SelectedValue.ToString();
+        objDataModel._fromCityId = ddlFromCity.SelectedValue.ToString();
+        objDataModel._toCityId = ddlToCity.SelectedValue.ToString();
+        objDataModel._departureTime = txtDepartureTime.Text;
+        objDataModel._AppJourneyTimehh =txtApproxJourneyTimehh.Text.Trim();
+        objDataModel._AppJourneyTimemm =txtApproxJourneyTimemm.Text.Trim();
+        objDataModel._numberOfSeats = txtNumberOfSeats.Text.Trim();
+
+        //BoardingStopInformation
+
+        objDataModel._boardingStop1 = txtStopName1.Text.Trim();
+        objDataModel._boardingStop2 = txtStopName2.Text.Trim();
+        objDataModel._boardingStop3 = txtStopName3.Text.Trim();
+        objDataModel._boardingStop4 = txtStopName4.Text.Trim();
+        objDataModel._boardingStop5 = txtStopName5.Text.Trim();
+        objDataModel._boardingStop6 = txtStopName6.Text.Trim();
+        objDataModel._boardingStop7 = txtStopName7.Text.Trim();
+        objDataModel._boardingStop8 = txtStopName8.Text.Trim();
+        objDataModel._boardingStop9 = txtStopName9.Text.Trim();
+        objDataModel._boardingStop10 = txtStopName10.Text.Trim();
+        objDataModel._boardingStop11 = txtStopName11.Text.Trim();
+        objDataModel._boardingStop12=txtStopName12.Text.Trim();
+        objDataModel._boardingStop13=txtStopName13.Text.Trim();
+        objDataModel._boardingStop14=txtStopName14.Text.Trim();
+        objDataModel._boardingStop15=txtStopName15.Text.Trim();
+
+        
+
+        objDataModel._depatureTime1 = txtTime1.Text.Trim();
+        objDataModel._depatureTime2 = txtTime2.Text.Trim();
+        objDataModel._depatureTime3 = txtTime3.Text.Trim();
+        objDataModel._depatureTime4 = txtTime4.Text.Trim();
+        objDataModel._depatureTime5 = txtTime5.Text.Trim();
+        objDataModel._depatureTime6 = txtTime6.Text.Trim();
+        objDataModel._depatureTime7 = txtTime7.Text.Trim();
+        objDataModel._depatureTime8 = txtTime8.Text.Trim();
+        objDataModel._depatureTime9 = txtTime9.Text.Trim();
+        objDataModel._depatureTime10 = txtTime10.Text.Trim();
+        objDataModel._depatureTime11 = txtTime11.Text.Trim();
+        objDataModel._depatureTime12 = txtTime12.Text.Trim();
+        objDataModel._depatureTime13 = txtTime13.Text.Trim();
+        objDataModel._depatureTime14 = txtTime14.Text.Trim();
+        objDataModel._depatureTime15 = txtTime15.Text.Trim();
+
+
+
+        objDataModel._bodAppJouHH1 = txtAppBorHH1.Text.Trim();
+        objDataModel._bodAppJouHH2 = txtAppBorHH2.Text.Trim();
+        objDataModel._bodAppJouHH3 = txtAppBorHH3.Text.Trim();
+        objDataModel._bodAppJouHH4 = txtAppBorHH4.Text.Trim();
+        objDataModel._bodAppJouHH5 = txtAppBorHH5.Text.Trim();
+        objDataModel._bodAppJouHH6 = txtAppBorHH6.Text.Trim();
+        objDataModel._bodAppJouHH7 = txtAppBorHH7.Text.Trim();
+        objDataModel._bodAppJouHH8 = txtAppBorHH8.Text.Trim();
+        objDataModel._bodAppJouHH9 = txtAppBorHH9.Text.Trim();
+        objDataModel._bodAppJouHH10 = txtAppBorHH10.Text.Trim();
+        objDataModel._bodAppJouHH11 = txtAppBorHH11.Text.Trim();
+        objDataModel._bodAppJouHH12 = txtAppBorHH12.Text.Trim();
+        objDataModel._bodAppJouHH13 = txtAppBorHH13.Text.Trim();
+        objDataModel._bodAppJouHH14 = txtAppBorHH14.Text.Trim();
+        objDataModel._bodAppJouHH15 = txtAppBorHH15.Text.Trim();
+        objDataModel._bodAppJouMM1 = txtAppBorMM1.Text.Trim();
+        objDataModel._bodAppJouMM2 = txtAppBorMM2.Text.Trim();
+        objDataModel._bodAppJouMM3 = txtAppBorMM3.Text.Trim();
+        objDataModel._bodAppJouMM4 = txtAppBorMM4.Text.Trim();
+        objDataModel._bodAppJouMM5 = txtAppBorMM5.Text.Trim();
+        objDataModel._bodAppJouMM6 = txtAppBorMM6.Text.Trim();
+        objDataModel._bodAppJouMM7 = txtAppBorMM7.Text.Trim();
+        objDataModel._bodAppJouMM8 = txtAppBorMM8.Text.Trim();
+        objDataModel._bodAppJouMM9 = txtAppBorMM9.Text.Trim();
+        objDataModel._bodAppJouMM10 = txtAppBorMM10.Text.Trim();
+        objDataModel._bodAppJouMM11 = txtAppBorMM11.Text.Trim();
+        objDataModel._bodAppJouMM12 = txtAppBorMM12.Text.Trim();
+        objDataModel._bodAppJouMM13 = txtAppBorHH13.Text.Trim();
+        objDataModel._bodAppJouMM14 = txtAppBorMM14.Text.Trim();
+        objDataModel._bodAppJouMM15 = txtAppBorMM15.Text.Trim();
+
+
+
+        
+
+      
+            
+
+        //ServiceStops
+
+        objDataModel._serviceStop1 = ddlAddServiceStop1.SelectedValue.ToString();
+        objDataModel._serviceStop2 = ddlAddServiceStop2.SelectedValue.ToString();
+        objDataModel._serviceStop3 = ddlAddServiceStop3.SelectedValue.ToString();
+        objDataModel._serviceStop4 = ddlAddServiceStop4.SelectedValue.ToString();
+        objDataModel._serviceStop5 = ddlAddServiceStop5.SelectedValue.ToString();
+        objDataModel._serviceStop6 = ddlAddServiceStop6.SelectedValue.ToString();
+        objDataModel._serviceStop7 = ddlAddServiceStop7.SelectedValue.ToString();
+        objDataModel._serviceStop8 = ddlAddServiceStop8.SelectedValue.ToString();
+        objDataModel._serviceStop9 = ddlAddServiceStop9.SelectedValue.ToString();
+        objDataModel._serviceStop10 = ddlAddServiceStop10.SelectedValue.ToString();
+        objDataModel._serviceStop11 = ddlAddServiceStop11.SelectedValue.ToString();
+        objDataModel._serviceStop12 = ddlAddServiceStop12.SelectedValue.ToString();
+        objDataModel._serviceStop13 = ddlAddServiceStop13.SelectedValue.ToString();
+        objDataModel._serviceStop14 = ddlAddServiceStop14.SelectedValue.ToString();
+        objDataModel._serviceStop15 = ddlAddServiceStop15.SelectedValue.ToString();
+
+        objDataModel._serviceDep1 = txtServiceDep1.Text.Trim();
+        objDataModel._serviceDep2 = txtServiceDep2.Text.Trim();
+        objDataModel._serviceDep3 = txtServiceDep3.Text.Trim();
+        objDataModel._serviceDep4 = txtServiceDep4.Text.Trim();
+        objDataModel._serviceDep5 = txtServiceDep5.Text.Trim();
+        objDataModel._serviceDep6 = txtServiceDep6.Text.Trim();
+        objDataModel._serviceDep7 = txtServiceDep7.Text.Trim();
+        objDataModel._serviceDep8 = txtServiceDep8.Text.Trim();
+        objDataModel._serviceDep9 = txtServiceDep9.Text.Trim();
+        objDataModel._serviceDep10 = txtServiceDep10.Text.Trim();
+        objDataModel._serviceDep11 = txtServiceDep11.Text.Trim();
+        objDataModel._serviceDep12 = txtServiceDep12.Text.Trim();
+        objDataModel._serviceDep13 = txtServiceDep13.Text.Trim();
+        objDataModel._serviceDep14 = txtServiceDep14.Text.Trim();
+        objDataModel._serviceDep15 = txtServiceDep15.Text.Trim();
+
+
+        objDataModel._approxServiceTimehh1 = txtApproxServiceTimehh1.Text.Trim();
+        objDataModel._approxServiceTimehh2 = txtApproxServiceTimehh2.Text.Trim();
+        objDataModel._approxServiceTimehh3 = txtApproxServiceTimehh3.Text.Trim();
+        objDataModel._approxServiceTimehh4 = txtApproxServiceTimehh4.Text.Trim();
+        objDataModel._approxServiceTimehh5 = txtApproxServiceTimehh5.Text.Trim();
+        objDataModel._approxServiceTimehh6 = txtApproxServiceTimehh6.Text.Trim();
+        objDataModel._approxServiceTimehh7 = txtApproxServiceTimehh7.Text.Trim();
+        objDataModel._approxServiceTimehh8 = txtApproxServiceTimehh8.Text.Trim();
+        objDataModel._approxServiceTimehh9 = txtApproxServiceTimehh9.Text.Trim();
+        objDataModel._approxServiceTimehh10 = txtApproxServiceTimehh10.Text.Trim();
+        objDataModel._approxServiceTimehh11 = txtApproxServiceTimehh11.Text.Trim();
+        objDataModel._approxServiceTimehh12 = txtApproxServiceTimehh12.Text.Trim();
+        objDataModel._approxServiceTimehh13 = txtApproxServiceTimehh13.Text.Trim();
+        objDataModel._approxServiceTimehh14 = txtApproxServiceTimehh14.Text.Trim();
+        objDataModel._approxServiceTimehh15 = txtApproxServiceTimehh15.Text.Trim();
+        objDataModel._approxServiceTimemm1 = txtApproxServiceTimemm1.Text.Trim();
+        objDataModel._approxServiceTimemm2 = txtApproxServiceTimemm2.Text.Trim();
+        objDataModel._approxServiceTimemm3 = txtApproxServiceTimemm3.Text.Trim();
+        objDataModel._approxServiceTimemm4 = txtApproxServiceTimemm4.Text.Trim();
+        objDataModel._approxServiceTimemm5 = txtApproxServiceTimemm5.Text.Trim();
+        objDataModel._approxServiceTimemm6 = txtApproxServiceTimemm6.Text.Trim();
+        objDataModel._approxServiceTimemm7 = txtApproxServiceTimemm7.Text.Trim();
+        objDataModel._approxServiceTimemm8 = txtApproxServiceTimemm8.Text.Trim();
+        objDataModel._approxServiceTimemm9 = txtApproxServiceTimemm9.Text.Trim();
+        objDataModel._approxServiceTimemm10 = txtApproxServiceTimemm10.Text.Trim();
+        objDataModel._approxServiceTimemm11 = txtApproxServiceTimemm11.Text.Trim();
+        objDataModel._approxServiceTimemm12 = txtApproxServiceTimemm12.Text.Trim();
+        objDataModel._approxServiceTimemm13 = txtApproxServiceTimemm13.Text.Trim();
+        objDataModel._approxServiceTimemm14 = txtApproxServiceTimemm14.Text.Trim();
+        objDataModel._approxServiceTimemm15 = txtApproxServiceTimemm15.Text.Trim();
+        objDataModel._fare1 = txtFare1.Text.Trim();
+        objDataModel._fare2 = txtFare2.Text.Trim();
+        objDataModel._fare3 = txtFare3.Text.Trim();
+        objDataModel._fare4 = txtFare4.Text.Trim();
+        objDataModel._fare5 = txtFare5.Text.Trim();
+        objDataModel._fare6 = txtFare6.Text.Trim();
+        objDataModel._fare7 = txtFare7.Text.Trim();
+        objDataModel._fare8 = txtFare8.Text.Trim();
+        objDataModel._fare9 = txtFare9.Text.Trim();
+        objDataModel._fare10 = txtFare10.Text.Trim();
+        objDataModel._fare11 = txtFare11.Text.Trim();
+        objDataModel._fare12 = txtFare12.Text.Trim();
+        objDataModel._fare13 = txtFare13.Text.Trim();
+        objDataModel._fare14 = txtFare14.Text.Trim();
+        objDataModel._fare15 = txtFare15.Text.Trim();
+
+
+
+
+
+
+
+
+
+        //Service Days
+        string daysAvailable=null;
+
+        if (chbAllDays.Checked == true)
+        {
+            daysAvailable = "1111111";
+        }
+        else
+        {
+            if (chbSunday.Checked == true)
+            {
+                daysAvailable = daysAvailable + "1";
+            }
+            else
+            {
+                daysAvailable = daysAvailable + "0";
+            }
+           
+            
+            if (chbMonday.Checked == true)
+            {
+                daysAvailable = daysAvailable + "1";
+            }
+            else
+            {
+                daysAvailable = daysAvailable + "0";
+            }
+
+            if (chbTuesday.Checked == true)
+            {
+                daysAvailable = daysAvailable + "1";
+            }
+            else
+            {
+                daysAvailable = daysAvailable + "0";
+            }
+
+            if (chbWenesday.Checked == true)
+            {
+                daysAvailable = daysAvailable + "1";
+            }
+            else
+            {
+                daysAvailable = daysAvailable + "0";
+            }
+
+            if (chbThursday.Checked == true)
+            {
+                daysAvailable = daysAvailable + "1";
+            }
+            else
+            {
+                daysAvailable = daysAvailable + "0";
+            }
+
+
+            if (chbFriday.Checked == true)
+            {
+                daysAvailable = daysAvailable + "1";
+            }
+            else
+            {
+                daysAvailable = daysAvailable + "0";
+            }
+
+            if (chbSaturday.Checked == true)
+            {
+                daysAvailable = daysAvailable + "1";
+            }
+            else
+            {
+                daysAvailable = daysAvailable + "0";
+            }
+        }
+
+        objDataModel._availableDays = daysAvailable;
+           
+
+
+
+
+
+
+
+    }
+}

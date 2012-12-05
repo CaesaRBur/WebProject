@@ -1,0 +1,1539 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true" CodeFile="frmAddServices.aspx.cs" Inherits="Admin_frmAddServices" Title="Untitled Page" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<link href="../TravelsStyleSheet.css" rel="stylesheet" type="text/css" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" >
+    <ContentTemplate>
+     
+    <table width="100%">
+        <tr>
+            <td style="width:100%">
+            
+        
+                    <table width="100%">
+                        <tr>
+                            <td class="TdBlue"  >
+                                <asp:Label ID="lblBasicInfo" runat="server" Text="Basic Information" 
+                                    CssClass="FontBoldwhite"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+            
+                    <table   style="width:100%">
+                            <tr>
+                                      
+                                <td style="width:25%" align="right">
+                                        <asp:Label ID="lblServiceNumber" runat="server" Text="Service Number" 
+                                            CssClass="FontBold"></asp:Label>
+                                        &nbsp;
+                                </td>
+                                <td style="width:25%">
+                                        <asp:TextBox ID="txtServiceNumber" runat="server"></asp:TextBox>
+                                </td>
+                                   
+                                <td style="width:25%" align="right">
+                                        <asp:Label ID="lblCoachType" runat="server" Text="Coach Type" 
+                                            CssClass="FontBold"></asp:Label>
+                                        &nbsp;
+                                </td>
+                                <td style="width:25%">
+                                    <asp:DropDownList ID="ddlCoachType" runat="server" AppendDataBoundItems="True">
+                                        <asp:ListItem>Type of Coach</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                        
+                            </tr>
+                            <tr>
+                                
+                                <td style="width:25%" align="right">
+                                        <asp:Label ID="lblFromCity" runat="server" Text="From City" CssClass="FontBold"></asp:Label>
+                                        &nbsp;
+                                </td>
+                                <td style="width:25%">
+                                    <asp:DropDownList ID="ddlFromCity" runat="server" AppendDataBoundItems="True">
+                                        <asp:ListItem>Select City</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                                                       
+                                <td style="width:25%" align="right">
+                                        <asp:Label ID="Label5" runat="server" Text="To City" CssClass="FontBold"></asp:Label>
+                                        &nbsp;
+                                </td>
+                                <td style="width:25%">
+                                    <asp:DropDownList ID="ddlToCity" runat="server" AppendDataBoundItems="True">
+                                        <asp:ListItem>Select City</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                       
+            </tr>
+                            <tr>
+                                <td  align="right">
+                                        <asp:Label ID="lblDepartureTime" runat="server" Text="Departure Time" 
+                                            CssClass="FontBold"></asp:Label>
+                                        &nbsp;
+                                </td>
+                                <td >
+                                    <asp:TextBox ID="txtDepartureTime" runat="server" Width="80px"></asp:TextBox>
+                                    <cc1:MaskedEditExtender ID="meeDepartureTime" runat="server"
+                                            TargetControlID="txtDepartureTime" 
+                                            Mask="99:99:99"
+                                            MessageValidatorTip="true"
+                                            OnFocusCssClass="MaskedEditFocus"
+                                            OnInvalidCssClass="MaskedEditError"
+                                            MaskType="Time"
+                                            AcceptAMPM="True"
+                                            CultureName="en-US" />
+                                <cc1:MaskedEditValidator ID="mevDepartureTime" runat="server"
+                                                            ControlExtender="meeDepartureTime"
+                                                            ControlToValidate="txtDepartureTime"
+                                                            IsValidEmpty="False"
+                                                            EmptyValueMessage="Time is required"
+                                                            InvalidValueMessage="Time is invalid"
+                                                             ValidationGroup="Demo1"
+                                                                Display="Dynamic"
+                                                            TooltipMessage="Input a time" />
+                               </td>
+                        
+                   
+                                <td align="right">
+                                        <asp:Label ID="lblApproxJourneyTime" runat="server" 
+                                            Text="Approx Journey Time" CssClass="FontBold"></asp:Label>
+                                        &nbsp;
+                                </td>
+                                <td >
+                                        <asp:TextBox ID="txtApproxJourneyTimehh" runat="server" Width="30px"></asp:TextBox>
+                                        <asp:TextBox ID="txtApproxJourneyTimemm" runat="server" Width="30px"></asp:TextBox>
+                                       
+                                </td>
+                       
+                            </tr>
+                            <tr>
+                
+                                <td align="right">
+                                        <asp:Label ID="lblNumberOfSeats" runat="server" Text="Number Of Seats" 
+                                            CssClass="FontBold"></asp:Label>
+                                        &nbsp;
+                                </td>
+                                <td >
+                                        <asp:TextBox ID="txtNumberOfSeats" runat="server"></asp:TextBox>
+                                </td>
+                                <td align="center">
+                                    &nbsp;</td>
+                                <td align="center">
+                                    &nbsp;</td>
+                      
+                                
+            </tr>
+        </table>
+            
+        </td>
+        </tr>
+        <tr>
+            <td>
+                <cc1:TextBoxWatermarkExtender ID="tbwApproxJourneyTimehh" runat="server" TargetControlID="txtApproxJourneyTimehh" WatermarkText="HH" WatermarkCssClass="watermarked">
+                </cc1:TextBoxWatermarkExtender>
+                <cc1:TextBoxWatermarkExtender ID="tbwtxtApproxJourneyTimemm" runat="server" TargetControlID="txtApproxJourneyTimemm" WatermarkText="MM" WatermarkCssClass="watermarked">
+            </cc1:TextBoxWatermarkExtender>
+            
+            </td>
+        </tr>
+        
+        <tr>
+            
+            <td>
+                <table width="100%">
+                        <tr>
+                            <td class="TdBlue"  >
+                                <asp:Label ID="lblStops" runat="server" Text="Add Boarding Stops" 
+                                    CssClass="FontBoldwhite"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td align="center" width="20%">
+                                <asp:Label ID="lblBoardingStopHeading" runat="server" CssClass="FontBold" 
+                                    Text="Stop Name"></asp:Label>
+                            </td>
+                              <td width="30%">
+                                  <asp:Label ID="lblDepatureTimeHeading" runat="server" CssClass="FontBold" 
+                                      Text="Depature Time"></asp:Label>
+                            </td>
+                              <td align="left" width="50%">
+                                  <asp:Label ID="lblJounyTimeHeading" runat="server" CssClass="FontBold" 
+                                      Text="Journey Time"></asp:Label>
+                            </td>
+                              
+                        </tr>
+                            
+                        <tr>
+                    <td align="center">
+                      <asp:TextBox ID="txtStopName1" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTime1" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtTime1" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtTime1" />
+                        <cc1:MaskedEditValidator ID="mevtxtTime1" runat="server" 
+                            ControlExtender="meetxtTime1" ControlToValidate="txtTime1" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td  align="left">
+                    
+                        <asp:TextBox ID="txtAppBorHH1" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtAppBorMM1" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmAppBorHH1" runat="server" 
+                            TargetControlID="txtAppBorHH1" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="tweAppBorMM1" runat="server" 
+                            TargetControlID="txtAppBorMM1" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                        &nbsp;
+</td>
+                    </tr>
+                    <tr>
+                    <td align="center">
+                        <asp:TextBox ID="txtStopName2" runat="server" Width="100px"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTime2" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtTime2" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtStopName2" />
+                        <cc1:MaskedEditValidator ID="mevtxtTime2" runat="server" 
+                            ControlExtender="meetxtTime2" ControlToValidate="txtStopName2" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td  align="left">
+                    
+                        <asp:TextBox ID="txtAppBorHH2" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtAppBorMM2" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmAppBorHH2" runat="server" 
+                            TargetControlID="txtAppBorHH2" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="tweAppBorMM2" runat="server" 
+                            TargetControlID="txtAppBorMM2" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                        &nbsp;
+                </td>
+                </tr>
+                        <tr>
+                    <td align="center">
+                         <asp:TextBox ID="txtStopName3" runat="server" Width="100px" ></asp:TextBox>
+                    </td>
+                    <td>
+                       <asp:TextBox ID="txtTime3" runat="server" Width="100px"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="meetxtTime3" runat="server"
+                                                TargetControlID="txtTime3" 
+                                                Mask="99:99:99"
+                                                MessageValidatorTip="true"
+                                                OnFocusCssClass="MaskedEditFocus"
+                                                OnInvalidCssClass="MaskedEditError"
+                                                MaskType="Time"
+                                                AcceptAMPM="True"
+                                                CultureName="en-US" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime3" runat="server"
+                                                                ControlExtender="meetxtTime3"
+                                                                ControlToValidate="txtTime3"
+                                                                IsValidEmpty="False"
+                                                                EmptyValueMessage="Time is required"
+                                                                InvalidValueMessage="Time is invalid"
+                                                                 ValidationGroup="Demo1"
+                                                                    Display="Dynamic"
+                                                                TooltipMessage="Input a time" />
+                                                                
+                  </td>
+                  <td  align="left">
+                    
+                        <asp:TextBox ID="txtAppBorHH3" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtAppBorMM3" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmAppBorHH3" runat="server" 
+                            TargetControlID="txtAppBorHH3" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="tweAppBorMM3" runat="server" 
+                            TargetControlID="txtAppBorMM3" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                        &nbsp;
+                </td>
+                  
+                  </tr>
+                    <tr>
+                    <td align="center">
+                        <asp:TextBox ID="txtStopName4" runat="server" Width="100px" ></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTime4" runat="server" Width="100px"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="meetxtTime4" runat="server"
+                                                TargetControlID="txtTime4" 
+                                                Mask="99:99:99"
+                                                MessageValidatorTip="true"
+                                                OnFocusCssClass="MaskedEditFocus"
+                                                OnInvalidCssClass="MaskedEditError"
+                                                MaskType="Time"
+                                                AcceptAMPM="True"
+                                                CultureName="en-US" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime4" runat="server"
+                                                                ControlExtender="meetxtTime4"
+                                                                ControlToValidate="txtTime4"
+                                                                IsValidEmpty="False"
+                                                                EmptyValueMessage="Time is required"
+                                                                InvalidValueMessage="Time is invalid"
+                                                                 ValidationGroup="Demo1"
+                                                                    Display="Dynamic"
+                                                                TooltipMessage="Input a time" />
+                    </td>
+                    
+
+                        <td  align="left">
+                                            
+                                                <asp:TextBox ID="txtAppBorHH4" runat="server" Width="30px"></asp:TextBox>
+                                                &nbsp;
+                                                <asp:TextBox ID="txtAppBorMM4" runat="server" Width="30px"></asp:TextBox>
+                                                <cc1:TextBoxWatermarkExtender ID="twmAppBorHH4" runat="server" 
+                                                    TargetControlID="txtAppBorHH4" WatermarkCssClass="watermarked" 
+                                                    WatermarkText="HH">
+                                                </cc1:TextBoxWatermarkExtender>
+                                                <cc1:TextBoxWatermarkExtender ID="tweAppBorMM4" runat="server" 
+                                                    TargetControlID="txtAppBorMM4" WatermarkCssClass="watermarked" 
+                                                    WatermarkText="MM">
+                                                </cc1:TextBoxWatermarkExtender>
+                                                &nbsp;
+                        </td>
+                </tr>
+                        <tr>
+                    <td align="center">
+                         <asp:TextBox ID="txtStopName5" runat="server" Width="100px" ></asp:TextBox>
+                    </td>
+                    <td>
+                         <asp:TextBox ID="txtTime5" runat="server" Width="100px"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="meetxtTime5" runat="server"
+                                                TargetControlID="txtTime5" 
+                                                Mask="99:99:99"
+                                                MessageValidatorTip="true"
+                                                OnFocusCssClass="MaskedEditFocus"
+                                                OnInvalidCssClass="MaskedEditError"
+                                                MaskType="Time"
+                                                AcceptAMPM="True"
+                                                CultureName="en-US" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime5" runat="server"
+                                                                ControlExtender="meetxtTime5"
+                                                                ControlToValidate="txtTime5"
+                                                                IsValidEmpty="False"
+                                                                EmptyValueMessage="Time is required"
+                                                                InvalidValueMessage="Time is invalid"
+                                                                 ValidationGroup="Demo1"
+                                                                    Display="Dynamic"
+                                                                TooltipMessage="Input a time" />
+                    </td>
+                    
+
+                            <td  align="left">
+                                                
+                                                    <asp:TextBox ID="txtAppBorHH5" runat="server" Width="30px"></asp:TextBox>
+                                                    &nbsp;
+                                                    <asp:TextBox ID="txtAppBorMM5" runat="server" Width="30px"></asp:TextBox>
+                                                    <cc1:TextBoxWatermarkExtender ID="twmAppBorHH5" runat="server" 
+                                                        TargetControlID="txtAppBorHH5" WatermarkCssClass="watermarked" 
+                                                        WatermarkText="HH">
+                                                    </cc1:TextBoxWatermarkExtender>
+                                                    <cc1:TextBoxWatermarkExtender ID="tweAppBorMM5" runat="server" 
+                                                        TargetControlID="txtAppBorMM5" WatermarkCssClass="watermarked" 
+                                                        WatermarkText="MM">
+                                                    </cc1:TextBoxWatermarkExtender>
+                                                    &nbsp;
+                            </td>
+                   
+                </tr>
+                        
+               
+                 </table>
+                 
+                
+               
+                 
+                 
+                 
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <asp:LinkButton ID="lbtnAddMoreBoardingStops" runat="server" 
+                    onclick="lbtnAddMoreBoardingStops_Click">Add more</asp:LinkButton>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Panel ID="pnlAdditionalBoardingStops" runat="server" Visible="False">
+                        <table width="100%">
+                        <tr>
+                             <td width="20%" align="center">
+                         <asp:TextBox ID="txtStopName6" runat="server" Width="100px" ></asp:TextBox>
+                    </td>
+                    <td width="30%">
+                         <asp:TextBox ID="txtTime6" runat="server" Width="100px"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="meetxtTime6" runat="server"
+                                                TargetControlID="txtTime6" 
+                                                Mask="99:99:99"
+                                                MessageValidatorTip="true"
+                                                OnFocusCssClass="MaskedEditFocus"
+                                                OnInvalidCssClass="MaskedEditError"
+                                                MaskType="Time"
+                                                AcceptAMPM="True"
+                                                CultureName="en-US" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime6" runat="server"
+                                                                ControlExtender="meetxtTime6"
+                                                                ControlToValidate="txtTime6"
+                                                                IsValidEmpty="False"
+                                                                EmptyValueMessage="Time is required"
+                                                                InvalidValueMessage="Time is invalid"
+                                                                 ValidationGroup="Demo1"
+                                                                    Display="Dynamic"
+                                                                TooltipMessage="Input a time" />
+                    </td>
+                    <td width="55%" >
+                    
+                        <asp:TextBox ID="txtAppBorHH6" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtAppBorMM6" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmAppBorHH6" runat="server" 
+                            TargetControlID="txtAppBorHH6" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="tweAppBorMM6" runat="server" 
+                            TargetControlID="txtAppBorMM6" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                        &nbsp;
+                    
+                    </td>
+                        </tr>
+                        
+                        <tr>
+                    <td align="center">
+                         <asp:TextBox ID="txtStopName7" runat="server" Width="100px" ></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTime7" runat="server" Width="100px"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="meetxtTime7" runat="server"
+                                                TargetControlID="txtTime7" 
+                                                Mask="99:99:99"
+                                                MessageValidatorTip="true"
+                                                OnFocusCssClass="MaskedEditFocus"
+                                                OnInvalidCssClass="MaskedEditError"
+                                                MaskType="Time"
+                                                AcceptAMPM="True"
+                                                CultureName="en-US" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime7" runat="server"
+                                                                ControlExtender="meetxtTime7"
+                                                                ControlToValidate="txtTime7"
+                                                                IsValidEmpty="False"
+                                                                EmptyValueMessage="Time is required"
+                                                                InvalidValueMessage="Time is invalid"
+                                                                 ValidationGroup="Demo1"
+                                                                    Display="Dynamic"
+                                                                TooltipMessage="Input a time" />
+                    </td>
+                    
+
+                        <td  align="left">
+                                            
+                                                <asp:TextBox ID="txtAppBorHH7" runat="server" Width="30px"></asp:TextBox>
+                                                &nbsp;
+                                                <asp:TextBox ID="txtAppBorMM7" runat="server" Width="30px"></asp:TextBox>
+                                                <cc1:TextBoxWatermarkExtender ID="twmAppBorHH7" runat="server" 
+                                                    TargetControlID="txtAppBorHH7" WatermarkCssClass="watermarked" 
+                                                    WatermarkText="HH">
+                                                </cc1:TextBoxWatermarkExtender>
+                                                <cc1:TextBoxWatermarkExtender ID="tweAppBorMM7" runat="server" 
+                                                    TargetControlID="txtAppBorMM7" WatermarkCssClass="watermarked" 
+                                                    WatermarkText="MM">
+                                                </cc1:TextBoxWatermarkExtender>
+                                                &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                    <td align="center">
+                        <asp:TextBox ID="txtStopName8" runat="server" Width="100px" ></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTime8" runat="server" Width="100px"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="meetxtTime8" runat="server"
+                                                TargetControlID="txtTime8" 
+                                                Mask="99:99:99"
+                                                MessageValidatorTip="true"
+                                                OnFocusCssClass="MaskedEditFocus"
+                                                OnInvalidCssClass="MaskedEditError"
+                                                MaskType="Time"
+                                                AcceptAMPM="True"
+                                                CultureName="en-US" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime8" runat="server"
+                                                                ControlExtender="meetxtTime8"
+                                                                ControlToValidate="txtTime8"
+                                                                IsValidEmpty="False"
+                                                                EmptyValueMessage="Time is required"
+                                                                InvalidValueMessage="Time is invalid"
+                                                                 ValidationGroup="Demo1"
+                                                                    Display="Dynamic"
+                                                                TooltipMessage="Input a time" />
+                    </td>
+                    
+
+                        <td  align="left">
+                                            
+                                                <asp:TextBox ID="txtAppBorHH8" runat="server" Width="30px"></asp:TextBox>
+                                                &nbsp;
+                                                <asp:TextBox ID="txtAppBorMM8" runat="server" Width="30px"></asp:TextBox>
+                                                <cc1:TextBoxWatermarkExtender ID="twmAppBorHH8" runat="server" 
+                                                    TargetControlID="txtAppBorHH8" WatermarkCssClass="watermarked" 
+                                                    WatermarkText="HH">
+                                                </cc1:TextBoxWatermarkExtender>
+                                                <cc1:TextBoxWatermarkExtender ID="tweAppBorMM8" runat="server" 
+                                                    TargetControlID="txtAppBorMM8" WatermarkCssClass="watermarked" 
+                                                    WatermarkText="MM">
+                                                </cc1:TextBoxWatermarkExtender>
+                                                &nbsp;
+                        </td>
+                </tr>
+                        <tr>
+                    <td align="center">
+                        <asp:TextBox ID="txtStopName9" runat="server" Width="100px" ></asp:TextBox>
+                    </td>
+                    <td>
+                         <asp:TextBox ID="txtTime9" runat="server" Width="100px"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="meetxtTime9" runat="server"
+                                                TargetControlID="txtTime9" 
+                                                Mask="99:99:99"
+                                                MessageValidatorTip="true"
+                                                OnFocusCssClass="MaskedEditFocus"
+                                                OnInvalidCssClass="MaskedEditError"
+                                                MaskType="Time"
+                                                AcceptAMPM="True"
+                                                CultureName="en-US" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime9" runat="server"
+                                                                ControlExtender="meetxtTime9"
+                                                                ControlToValidate="txtTime9"
+                                                                IsValidEmpty="False"
+                                                                EmptyValueMessage="Time is required"
+                                                                InvalidValueMessage="Time is invalid"
+                                                                 ValidationGroup="Demo1"
+                                                                    Display="Dynamic"
+                                                                TooltipMessage="Input a time" />
+                    </td>
+                    
+
+                        <td  align="left">
+                                            
+                                                <asp:TextBox ID="txtAppBorHH9" runat="server" Width="30px"></asp:TextBox>
+                                                &nbsp;
+                                                <asp:TextBox ID="txtAppBorMM9" runat="server" Width="30px"></asp:TextBox>
+                                                <cc1:TextBoxWatermarkExtender ID="twmAppBorHH9" runat="server" 
+                                                    TargetControlID="txtAppBorHH9" WatermarkCssClass="watermarked" 
+                                                    WatermarkText="HH">
+                                                </cc1:TextBoxWatermarkExtender>
+                                                <cc1:TextBoxWatermarkExtender ID="tweAppBorMM9" runat="server" 
+                                                    TargetControlID="txtAppBorMM9" WatermarkCssClass="watermarked" 
+                                                    WatermarkText="MM">
+                                                </cc1:TextBoxWatermarkExtender>
+                                                &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                    <td align="center">
+                         <asp:TextBox ID="txtStopName10" runat="server" Width="100px" ></asp:TextBox>
+                    </td>
+                     
+                    <td>
+                        <asp:TextBox ID="txtTime10" runat="server" Width="100px"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="meetxtTime10" runat="server"
+                                                TargetControlID="txtTime10" 
+                                                Mask="99:99:99"
+                                                MessageValidatorTip="true"
+                                                OnFocusCssClass="MaskedEditFocus"
+                                                OnInvalidCssClass="MaskedEditError"
+                                                MaskType="Time"
+                                                AcceptAMPM="True"
+                                                CultureName="en-US" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime10" runat="server"
+                                                                ControlExtender="meetxtTime10"
+                                                                ControlToValidate="txtTime10"
+                                                                IsValidEmpty="False"
+                                                                EmptyValueMessage="Time is required"
+                                                                InvalidValueMessage="Time is invalid"
+                                                                 ValidationGroup="Demo1"
+                                                                    Display="Dynamic"
+                                                                TooltipMessage="Input a time" />
+                    </td>
+                    
+
+<td  align="left">
+                    
+                        <asp:TextBox ID="txtAppBorHH10" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtAppBorMM10" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmAppBorHH10" runat="server" 
+                            TargetControlID="txtAppBorHH10" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="tweAppBorMM10" runat="server" 
+                            TargetControlID="txtAppBorMM10" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                        &nbsp;
+</td>
+                </tr>
+                        
+                        
+                        
+                        
+                        
+                        
+                            <tr>
+                            
+                            
+                                <td align="center" >
+                                    <asp:TextBox ID="txtStopName11" runat="server" Width="100px"></asp:TextBox>
+                                </td>
+                                <td >
+                                    <asp:TextBox ID="txtTime11" runat="server" Width="100px"></asp:TextBox>
+                                    <cc1:MaskedEditExtender ID="meetxtTime11" runat="server" 
+                                        AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                                        MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                                        OnInvalidCssClass="MaskedEditError" TargetControlID="txtTime11" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime11" runat="server" 
+                                        ControlExtender="meetxtTime11" ControlToValidate="txtTime11" 
+                                        Display="Dynamic" EmptyValueMessage="Time is required" 
+                                        InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                                        TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                                </td>
+                                
+                                
+
+                                    <td  align="left">
+                                                        
+                                                            <asp:TextBox ID="txtAppBorHH11" runat="server" Width="30px"></asp:TextBox>
+                                                            &nbsp;
+                                                            <asp:TextBox ID="txtAppBorMM11" runat="server" Width="30px"></asp:TextBox>
+                                                            <cc1:TextBoxWatermarkExtender ID="twmAppBorHH11" runat="server" 
+                                                                TargetControlID="txtAppBorHH11" WatermarkCssClass="watermarked" 
+                                                                WatermarkText="HH">
+                                                            </cc1:TextBoxWatermarkExtender>
+                                                            <cc1:TextBoxWatermarkExtender ID="tweAppBorMM11" runat="server" 
+                                                                TargetControlID="txtAppBorMM11" WatermarkCssClass="watermarked" 
+                                                                WatermarkText="MM">
+                                                            </cc1:TextBoxWatermarkExtender>
+                                                            &nbsp;
+                                    </td>
+                                 </tr>
+                    <tr>
+                                <td align="center" >
+                                    <asp:TextBox ID="txtStopName12" runat="server" Width="100px"></asp:TextBox>
+                                </td>
+                                <td >
+                                    <asp:TextBox ID="txtTime12" runat="server" Width="100px"></asp:TextBox>
+                                    <cc1:MaskedEditExtender ID="meetxtTime12" runat="server" 
+                                        AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                                        MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                                        OnInvalidCssClass="MaskedEditError" TargetControlID="txtTime12" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime12" runat="server" 
+                                        ControlExtender="meetxtTime12" ControlToValidate="txtTime12" 
+                                        Display="Dynamic" EmptyValueMessage="Time is required" 
+                                        InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                                        TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                                </td>
+                                
+
+                            <td  align="left">
+                                                
+                                                    <asp:TextBox ID="txtAppBorHH12" runat="server" Width="30px"></asp:TextBox>
+                                                    &nbsp;
+                                                    <asp:TextBox ID="txtAppBorMM12" runat="server" Width="30px"></asp:TextBox>
+                                                    <cc1:TextBoxWatermarkExtender ID="twmAppBorHH12" runat="server" 
+                                                        TargetControlID="txtAppBorHH12" WatermarkCssClass="watermarked" 
+                                                        WatermarkText="HH">
+                                                    </cc1:TextBoxWatermarkExtender>
+                                                    <cc1:TextBoxWatermarkExtender ID="tweAppBorMM12" runat="server" 
+                                                        TargetControlID="txtAppBorMM12" WatermarkCssClass="watermarked" 
+                                                        WatermarkText="MM">
+                                                    </cc1:TextBoxWatermarkExtender>
+                                                    &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                                <td align="center" >
+                                    <asp:TextBox ID="txtStopName13" runat="server" Width="100px"></asp:TextBox>
+                                </td>
+                                <td >
+                                    <asp:TextBox ID="txtTime13" runat="server" Width="100px"></asp:TextBox>
+                                    <cc1:MaskedEditExtender ID="meetxtTime13" runat="server" 
+                                        AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                                        MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                                        OnInvalidCssClass="MaskedEditError" TargetControlID="txtTime11" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime13" runat="server" 
+                                        ControlExtender="meetxtTime13" ControlToValidate="txtTime13" 
+                                        Display="Dynamic" EmptyValueMessage="Time is required" 
+                                        InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                                        TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                                </td>
+                                
+
+                                        <td  align="left">
+                                                            
+                                                                <asp:TextBox ID="txtAppBorHH13" runat="server" Width="30px"></asp:TextBox>
+                                                                &nbsp;
+                                                                <asp:TextBox ID="txtAppBorMM13" runat="server" Width="30px"></asp:TextBox>
+                                                                <cc1:TextBoxWatermarkExtender ID="twmAppBorHH13" runat="server" 
+                                                                    TargetControlID="txtAppBorHH13" WatermarkCssClass="watermarked" 
+                                                                    WatermarkText="HH">
+                                                                </cc1:TextBoxWatermarkExtender>
+                                                                <cc1:TextBoxWatermarkExtender ID="tweAppBorMM13" runat="server" 
+                                                                    TargetControlID="txtAppBorMM13" WatermarkCssClass="watermarked" 
+                                                                    WatermarkText="MM">
+                                                                </cc1:TextBoxWatermarkExtender>
+                                                                &nbsp;
+                                        </td>
+                                 </tr>
+                    <tr>
+                                <td align="center" >
+                                    <asp:TextBox ID="txtStopName14" runat="server" Width="100px"></asp:TextBox>
+                                </td>
+                                <td >
+                                    <asp:TextBox ID="txtTime14" runat="server" Width="100px"></asp:TextBox>
+                                    <cc1:MaskedEditExtender ID="meetxtTime14" runat="server" 
+                                        AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                                        MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                                        OnInvalidCssClass="MaskedEditError" TargetControlID="txtTime12" />
+                                    <cc1:MaskedEditValidator ID="mevtxtTime14" runat="server" 
+                                        ControlExtender="meetxtTime14" ControlToValidate="txtTime14" 
+                                        Display="Dynamic" EmptyValueMessage="Time is required" 
+                                        InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                                        TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                                </td>
+                                
+
+                                <td  align="left">
+                                                    
+                                                        <asp:TextBox ID="txtAppBorHH14" runat="server" Width="30px"></asp:TextBox>
+                                                        &nbsp;
+                                                        <asp:TextBox ID="txtAppBorMM14" runat="server" Width="30px"></asp:TextBox>
+                                                        <cc1:TextBoxWatermarkExtender ID="twmAppBorHH14" runat="server" 
+                                                            TargetControlID="txtAppBorHH14" WatermarkCssClass="watermarked" 
+                                                            WatermarkText="HH">
+                                                        </cc1:TextBoxWatermarkExtender>
+                                                        <cc1:TextBoxWatermarkExtender ID="tweAppBorMM14" runat="server" 
+                                                            TargetControlID="txtAppBorMM14" WatermarkCssClass="watermarked" 
+                                                            WatermarkText="MM">
+                                                        </cc1:TextBoxWatermarkExtender>
+                                                        &nbsp;
+                                </td>
+                        </tr>
+                
+                        <tr>
+                                <td align="center">
+                                     <asp:TextBox ID="txtStopName15" runat="server" Width="100px" ></asp:TextBox>
+                                </td>
+                                <td>
+                                     <asp:TextBox ID="txtTime15" runat="server" Width="100px"></asp:TextBox>
+                                            <cc1:MaskedEditExtender ID="meetxtTime15" runat="server"
+                                                            TargetControlID="txtTime5" 
+                                                            Mask="99:99:99"
+                                                            MessageValidatorTip="true"
+                                                            OnFocusCssClass="MaskedEditFocus"
+                                                            OnInvalidCssClass="MaskedEditError"
+                                                            MaskType="Time"
+                                                            AcceptAMPM="True"
+                                                            CultureName="en-US" />
+                                                <cc1:MaskedEditValidator ID="mevtxtTime15" runat="server"
+                                                                            ControlExtender="meetxtTime15"
+                                                                            ControlToValidate="txtTime5"
+                                                                            IsValidEmpty="False"
+                                                                            EmptyValueMessage="Time is required"
+                                                                            InvalidValueMessage="Time is invalid"
+                                                                             ValidationGroup="Demo1"
+                                                                                Display="Dynamic"
+                                                                            TooltipMessage="Input a time" />
+                                </td>
+                                
+
+                                    <td  align="left">
+                                                        
+                                                            <asp:TextBox ID="txtAppBorHH15" runat="server" Width="30px"></asp:TextBox>
+                                                            &nbsp;
+                                                            <asp:TextBox ID="txtAppBorMM15" runat="server" Width="30px"></asp:TextBox>
+                                                            <cc1:TextBoxWatermarkExtender ID="twmAppBorHH15" runat="server" 
+                                                                TargetControlID="txtAppBorHH15" WatermarkCssClass="watermarked" 
+                                                                WatermarkText="HH">
+                                                            </cc1:TextBoxWatermarkExtender>
+                                                            <cc1:TextBoxWatermarkExtender ID="tweAppBorMM15" runat="server" 
+                                                                TargetControlID="txtAppBorMM15" WatermarkCssClass="watermarked" 
+                                                                WatermarkText="MM">
+                                                            </cc1:TextBoxWatermarkExtender>
+                                                            &nbsp;
+                                    </td>
+                           </tr>
+                           
+    </table>
+                </asp:Panel>
+            </td>
+        </tr>
+         <tr>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            
+        <table width="100%">
+            <tr>
+                <td class="TdBlue">
+                    <asp:Label ID="lblHeading" runat="server" CssClass="FontBoldwhite" 
+                        Text="Add Service Stops"></asp:Label>
+                </td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+        <tr>
+        
+       
+        <td style="width:100%">
+         
+            
+            
+            
+            <table width="100%">
+                <tr>
+                    <td align="center" width="20%">
+                        <asp:Label ID="lblStopNameHeading" runat="server" Text="Stop Name" 
+                            CssClass="FontBold" ></asp:Label>
+                    </td>
+                    <td align="left" width="25%">
+                        <asp:Label ID="lblDepTimeHeading" runat="server" Text="Depature Time" 
+                            CssClass="FontBold"></asp:Label>
+                    </td>
+                    <td align="left" width="15%">
+                        <asp:Label ID="lblJournyTimeHeading" runat="server" Text="Journey Time" 
+                            CssClass="FontBold"></asp:Label>
+                    </td>
+                    <td align="center" width="30%">
+                        <asp:Label ID="lblFareHeading" runat="server" Text="Fare" CssClass="FontBold"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop1" runat="server" 
+                            AppendDataBoundItems="True">
+                            <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep1" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep1" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep1" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep1" runat="server" 
+                            ControlExtender="meetxtServiceDep1" ControlToValidate="txtServiceDep1" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td  align="left">
+                    
+                        <asp:TextBox ID="txtApproxServiceTimehh1" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm1" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender16" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh1" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender17" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm1" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                        &nbsp;</td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare1" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender11" runat="server" 
+                            TargetControlID="txtFare1" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop2" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep2" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep2" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep2" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep2" runat="server" 
+                            ControlExtender="meetxtServiceDep2" ControlToValidate="txtServiceDep2" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh2" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm2" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh2" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm2" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare2" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender12" runat="server" 
+                            TargetControlID="txtFare2" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop3" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep3" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep3" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep3" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep3" runat="server" 
+                            ControlExtender="meetxtServiceDep3" ControlToValidate="txtServiceDep3" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh3" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm3" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh3" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender6" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm3" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare3" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender13" runat="server" 
+                            TargetControlID="txtFare3" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop4" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep4" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep4" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep4" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep4" runat="server" 
+                            ControlExtender="meetxtServiceDep4" ControlToValidate="txtServiceDep4" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh4" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm4" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender7" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh4" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender8" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm4" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare4" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender14" runat="server" 
+                            TargetControlID="txtFare4" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop5" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep5" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep5" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep5" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep5" runat="server" 
+                            ControlExtender="meetxtServiceDep5" ControlToValidate="txtServiceDep5" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh5" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm5" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender9" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh5" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender10" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm5" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare5" runat="server" ></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender15" runat="server" 
+                            TargetControlID="txtFare5" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+            </table>
+         
+            
+            
+            
+        </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <asp:LinkButton ID="lbtnAddMoreServiceStops" runat="server" 
+                    onclick="lbtnAddMoreServiceStops_Click">Add More</asp:LinkButton>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Panel ID="pnlAdditionalServiceStops" runat="server" Visible="false">
+                    <table width="100%">
+                
+                <tr>
+                    <td align="center" width="20%">
+                        <asp:DropDownList ID="ddlAddServiceStop6" runat="server" Height="16px" 
+                            AppendDataBoundItems="True">
+                            <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left" width="25%">
+                        <asp:TextBox ID="txtServiceDep6" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep6" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep6" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep6" runat="server" 
+                            ControlExtender="meetxtServiceDep6" ControlToValidate="txtServiceDep6" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td  align="left" width="15%">
+                    
+                        <asp:TextBox ID="txtApproxServiceTimehh6" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm6" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twetxtApproxServiceTimehh6" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh6" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twetxtApproxServiceTimemm6" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm6" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                        &nbsp;</td>
+                    <td align="center" width="30%">
+                        <asp:TextBox ID="txtFare6" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twetxtFare6" runat="server" 
+                            TargetControlID="txtFare6" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop7" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep7" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep7" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep7" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep7" runat="server" 
+                            ControlExtender="meetxtServiceDep7" ControlToValidate="txtServiceDep7" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh7" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm7" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="tbwtxtApproxServiceTimehh7" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh7" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm7" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm7" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare7" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twetxtFare7" runat="server" 
+                            TargetControlID="txtFare7" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop8" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep8" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep8" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep8" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep8" runat="server" 
+                            ControlExtender="meetxtServiceDep8" ControlToValidate="txtServiceDep8" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh8" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm8" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimehh8" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh8" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm8" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm8" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare8" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtFare8" runat="server" 
+                            TargetControlID="txtFare8" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop9" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep9" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep9" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep9" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep9" runat="server" 
+                            ControlExtender="meetxtServiceDep9" ControlToValidate="txtServiceDep9" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh9" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm9" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimehh9" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh9" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm9" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm9" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare9" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtFare9" runat="server" 
+                            TargetControlID="txtFare9" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop10" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep10" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep10" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep10" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep10" runat="server" 
+                            ControlExtender="meetxtServiceDep10" ControlToValidate="txtServiceDep10" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh10" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm10" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimehh10" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh10" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm10" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm10" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare10" runat="server" ></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtFare10" runat="server" 
+                            TargetControlID="txtFare10" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop11" runat="server" 
+                            AppendDataBoundItems="True">
+                            <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep11" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep11" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep11" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep11" runat="server" 
+                            ControlExtender="meetxtServiceDep11" ControlToValidate="txtServiceDep11" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td  align="left">
+                    
+                        <asp:TextBox ID="txtApproxServiceTimehh11" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm11" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimehh11" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh11" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm11" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm11" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                        &nbsp;</td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare11" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtFare11" runat="server" 
+                            TargetControlID="txtFare11" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop12" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep12" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep12" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep12" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep12" runat="server" 
+                            ControlExtender="meetxtServiceDep12" ControlToValidate="txtServiceDep12" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh12" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm12" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimehh12" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh12" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm12" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm12" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare12" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtFare12" runat="server" 
+                            TargetControlID="txtFare12" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop13" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep13" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep13" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep13" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep13" runat="server" 
+                            ControlExtender="meetxtServiceDep13" ControlToValidate="txtServiceDep13" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh13" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm13" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimehh13" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh13" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm13" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm13" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare13" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtFare13" runat="server" 
+                            TargetControlID="txtFare13" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop14" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep14" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep14" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep14" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep14" runat="server" 
+                            ControlExtender="meetxtServiceDep14" ControlToValidate="txtServiceDep14" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh14" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm14" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimehh14" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh14" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm14" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm14" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare14" runat="server"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtFare14" runat="server" 
+                            TargetControlID="txtFare14" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:DropDownList ID="ddlAddServiceStop15" runat="server" 
+                            AppendDataBoundItems="True">
+                        <asp:ListItem>Add Service Stop</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtServiceDep15" runat="server" Width="100px"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="meetxtServiceDep15" runat="server" 
+                            AcceptAMPM="True" CultureName="en-US" Mask="99:99:99" MaskType="Time" 
+                            MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus" 
+                            OnInvalidCssClass="MaskedEditError" TargetControlID="txtServiceDep15" />
+                        <cc1:MaskedEditValidator ID="mevtxtServiceDep15" runat="server" 
+                            ControlExtender="meetxtServiceDep15" ControlToValidate="txtServiceDep15" 
+                            Display="Dynamic" EmptyValueMessage="Time is required" 
+                            InvalidValueMessage="Time is invalid" IsValidEmpty="False" 
+                            TooltipMessage="Input a time" ValidationGroup="Demo1" />
+                    </td>
+                    <td align="left">
+                        <asp:TextBox ID="txtApproxServiceTimehh15" runat="server" Width="30px"></asp:TextBox>
+                        &nbsp;
+                        <asp:TextBox ID="txtApproxServiceTimemm15" runat="server" Width="30px"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimehh15" runat="server" 
+                            TargetControlID="txtApproxServiceTimehh15" WatermarkCssClass="watermarked" 
+                            WatermarkText="HH">
+                        </cc1:TextBoxWatermarkExtender>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtApproxServiceTimemm15" runat="server" 
+                            TargetControlID="txtApproxServiceTimemm15" WatermarkCssClass="watermarked" 
+                            WatermarkText="MM">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                    <td align="center">
+                        <asp:TextBox ID="txtFare15" runat="server" ></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="twmtxtFare15" runat="server" 
+                            TargetControlID="txtFare15" WatermarkCssClass="watermarked" 
+                            WatermarkText="Rs">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+            </table>
+                </asp:Panel>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%">
+                        <tr>
+                            <td class="TdBlue"  >
+                                <asp:Label ID="lblAddServiceDays" runat="server" Text="Add Service Days" 
+                                    CssClass="FontBoldwhite"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%">
+                <tr>
+                    <td style="width:33.3%">
+                        <asp:CheckBox ID="chbAllDays" runat="server" Text="All days" 
+                            AutoPostBack="True" oncheckedchanged="chbAllDays_CheckedChanged" />
+                    </td>
+                    <td style="width:33.3%">
+                        &nbsp;</td>
+                    <td style="width:33.3%">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td >
+                        <asp:CheckBox ID="chbSunday" runat="server" Text="Sunday" />
+                    </td>
+                    <td>
+                        <asp:CheckBox ID="chbMonday" runat="server" Text="Monday" />
+                    </td>
+                    <td>
+                        <asp:CheckBox ID="chbTuesday" runat="server" Text="Tuesday" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:CheckBox ID="chbWenesday" runat="server" Text="Wenesday" />
+                    </td>
+                    <td>
+                        <asp:CheckBox ID="chbThursday" runat="server" Text="Thursday" />
+                    </td>
+                    <td>
+                        <asp:CheckBox ID="chbFriday" runat="server" Text="Friday" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:CheckBox ID="chbSaturday" runat="server" Text="Saturday" />
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        
+        <tr>
+            <td align="right">
+            
+                <asp:Button ID="btnFinish" runat="server" onclick="btnFinish_Click" 
+                    Text="Finish" />
+            </td>
+        </tr>
+        
+    </table>
+    </ContentTemplate>
+    </asp:UpdatePanel>
+</asp:Content>
+

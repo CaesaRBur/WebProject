@@ -1,0 +1,133 @@
+#Leftpane, #Rightpane, #other
+{ 
+  display : none; 
+} 
+
+@media print 
+{ 
+.dontprint 
+	{
+		display:none;
+	}
+	.printonly 
+	{
+		size:landscape; 
+	}
+}
+
+.textbox {
+	BORDER-RIGHT: #9DC3EA 1px solid;
+    BORDER-TOP: #9DC3EA 1px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #9DC3EA 1px solid;
+    COLOR: #333333;
+    BORDER-BOTTOM: #9DC3EA 1px solid
+}
+.buttonc
+{
+	border-right: #9dc3ea 1px solid;
+	border-top: #9dc3ea 1px solid;
+	font-weight: bold;
+	font-size: 11px;
+	background-image: url(ss-02.gif);
+	border-left: #9dc3ea 1px solid;
+	width: 100px;
+	cursor: hand;
+	color: #006699;
+	border-bottom: #9dc3ea 1px solid;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	height: 22px;
+	background-color: #ccffff;
+}
+.tabtxt {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #003366;
+}
+.shead {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffffff;
+	background-color:#006699;
+		
+}
+
+.trdata2
+{
+	font-size: 12px;
+	color: darkblue;
+	cursor: hand;
+	font-family: Verdana,Helvetica, sans-serif;
+	background-color: aliceblue;
+	text-transform:none;
+}
+.trdata1
+{
+	font-size: 12px;
+	border-width:thin;
+	color: darkblue;
+	cursor: hand;
+	font-family: Verdana,Helvetica, sans-serif;
+	background-color:'#E62FE';
+	text-transform:none;
+}
+.error
+{
+    FONT-SIZE: 13px;
+    COLOR: #cc0000;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+
+.dheader {
+           font-size: 25px;
+		   font-weight: bold;
+		  }
+
+.iheader {
+           font-size: 15px;
+		   }
+
+.Grid { border: solid 1px Tan; }
+
+
+
+.GridHeader
+{
+    font-weight: bold;
+    background-color: Tan;
+}
+
+.GridHeader a
+{
+    text-decoration: none;
+    color: LightGoldenrodYellow;
+    padding: 0px 15px 0px 15px;
+}
+.GridHeader a:hover
+{
+    text-decoration: underline;
+    background: Tan url(images/spin.gif) no-repeat 0 100%;
+}
+
+.GridItem, .GridAltItem
+{
+    font-size: smaller;
+}
+.GridItem
+{
+    background-color: LightGoldenrodYellow;
+}
+
+.GridAltItem
+{
+    background-color: PaleGoldenrod;
+}
+
+
+
+
+
+
+

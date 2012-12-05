@@ -1,0 +1,201 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link href="../TravelsStyleSheet.css" rel="stylesheet" type="text/css" />
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+       
+    </style>
+</head>
+<body style="margin:0px; padding:0px" >
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        
+        
+        
+        <table cellpadding="0" cellspacing="0" width="100%" >
+            <tr>
+                <td>
+                    <table align="center" cellpadding="0" cellspacing="0" width="780px">
+                        <tr>
+                            <td>
+                                <table align="center" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td>
+                                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/banner copy.jpg" />
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td style="width:100%" valign="top">
+                                            <table align="center" cellpadding="0" cellspacing="0" width="60%">
+                                                <tr>
+                                                    <td>
+                                                        <asp:ImageButton ID="ImageButton1" runat="server" 
+                                                            ImageUrl="~/Images/home_default.jpg" CausesValidation="False" />
+                                                    </td>
+                                                    <td>
+                                                        <asp:ImageButton ID="ImageButton2" runat="server" 
+                                                            ImageUrl="~/Images/aboutus_default.jpg" CausesValidation="False" />
+                                                    </td>
+                                                    <td>
+                                                        <asp:ImageButton ID="ImageButton3" runat="server" 
+                                                            ImageUrl="~/Images/contact_default.jpg" CausesValidation="False" PostBackUrl="~/frmContactUs.aspx" 
+                                                            />
+                                                    </td>
+                                                    <td>
+                                                        <asp:ImageButton ID="ImageButton4" runat="server" 
+                                                            ImageUrl="~/Images/checkfare_default.jpg" CausesValidation="False" PostBackUrl="~/frmcheckfare.aspx" 
+                                                            />
+                                                    </td>
+                                                    <td>
+                                                        <asp:ImageButton ID="ImageButton5" runat="server" 
+                                                            ImageUrl="~/Images/schedules_default.jpg" CausesValidation="False" PostBackUrl="~/Schedules.aspx" 
+                                                             />
+                                                    </td>
+                                                    <td>
+                                                        <asp:ImageButton ID="ImageButton6" runat="server" 
+                                                            ImageUrl="~/Images/cancellation_default.jpg" 
+                                                            PostBackUrl="~/frmticketcancelation.aspx" CausesValidation="False"  
+                                                             />
+                                                    </td>
+                                                    <td>
+                                                        <asp:ImageButton ID="ImageButton7" runat="server" 
+                                                            ImageUrl="~/Images/login-but-new.gif" CausesValidation="False" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                        <td style="width:100%">
+                            <table width="100%">
+                                <tr>
+                                
+                                
+                            <td style="width:15%" align="left" valign="top">
+                               <asp:Panel ID="pnlLinks" runat="server">
+                                <table width="100%">
+                                    <tr>
+                                        <td >
+                                            &nbsp;
+                                            <asp:LinkButton ID="lbtnAddACity" runat="server" CssClass="FontBoldBlueColor" 
+                                                Font-Underline="False" PostBackUrl="~/Admin/frmAddCity.aspx" 
+                                                CausesValidation="False">Add a City</asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            <asp:LinkButton ID="lbtnCancellationDetails" runat="server" CssClass="FontBoldBlueColor" 
+                                                Font-Underline="False" PostBackUrl="~/Admin/frmCancellationDetails.aspx" 
+                                                 CausesValidation="False">Cancellation Details</asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            <asp:LinkButton ID="lbtnAddCoach" runat="server" CssClass="FontBoldBlueColor" 
+                                                Font-Underline="False" PostBackUrl="~/Admin/frmAddCoached.aspx" 
+                                                 CausesValidation="False">Add a Coach</asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            <asp:LinkButton ID="lbtnAddServices" runat="server" CssClass="FontBoldBlueColor" 
+                                                Font-Underline="False" PostBackUrl="~/Admin/frmAddService.aspx" 
+                                                 CausesValidation="False">AddServices</asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            <asp:LinkButton ID="lbtnAgent" runat="server" CssClass="FontBoldBlueColor" 
+                                                Font-Underline="False" CausesValidation="False" 
+                                                 PostBackUrl="~/Admin/frmAddAgent.aspx">Add Agent</asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                             &nbsp;
+                                            </td>
+                                    </tr>
+                                </table>
+                                </asp:Panel>
+                            </td>
+                            <td style="width:85%" align="left" valign="top">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                            </tr>
+                            </table>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               <%--footer--%>
+                               
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

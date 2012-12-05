@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Linq;
+using System.Xml.Linq;
+using System.Data.SqlClient;
+
+public partial class frmUserRegistration : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    //This function insert New User Into DataBase
+    public void InsertUser()
+    {
+        DataModel.UserRegistrationDE UserRegistrationDE = new DataModel.UserRegistrationDE();
+        DataModel.UsersDE DE = new DataModel.UsersDE();
+        DE.UserID = getUserID();
+        DE.FirstName = txtName.Text;
+        DE.EMail = txtEmail.Text;
+        DE.Password = txtPassword.Text;
+
+        BusinessLogic.UserRegistrationBL UserRegistrationBL = new BusinessLogic.UserRegistrationBL();
+        int i=UserRegistrationBL.InsertUser(DE);
+        if (i != 0)
+        {
+            ScriptManager.RegisterClientScriptBlock(UpdatePanel1, UpdatePanel1.GetType(), "AnyScriptNameYouLike", "alert('User Inserted Successfully');", true);
+        }
+        else
+        {
+            ScriptManager.RegisterClientScriptBlock(UpdatePanel1, UpdatePanel1.GetType(), "AnyScriptNameYouLike", "alert('User not inserted');", true);
+        }
+
+        Clear();
+    }
+    //This Function Clear the all feilds
+    public void Clear()
+    {
+        txtCodeShown.Text = "";
+        txtEmail.Text = "";
+        txtName.Text = "";
+    }
+
+    protected int getUserID()
+    {
+        //BusinessLogic.UsersBL bl = new BusinessLogic.UsersBL();
+        //DataSet ds = new DataSet();
+        //DataSet dsMax = new DataSet();
+        SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["conn"]);
+        SqlCommand cmd = null;
+        cmd = new SqlCommand("select max(userId) from hp_tblUsers", connection);
+        connection.Open();
+        object obj=cmd.ExecuteScalar();
+        connection.Close();       
+        int intUID = 0;
+        if(obj==null)
+            intUID=1;
+        else
+        intUID = int.Parse(obj.ToString()) + 1;
+        ////ds = bl.GetUsersDataSet();
+        //if (ds.Tables[0].Rows.Count == 0)
+        //{
+        //    intUID = 1;
+        //}
+        //else
+        //{
+        //    dsMax = bl.GetMaxUsersDataSet();
+        //    int a = Convert.ToInt16(dsMax.Tables[0].Rows[0]["UserID"].ToString());
+        //    intUID = a + 1;
+        //}
+        return intUID;
+    }
+
+    protected void btnRegister_Click1(object sender, ImageClickEventArgs e)
+    {
+        //BusinessLogic.UsersBL bl = new BusinessLogic.UsersBL();
+        //DataSet ds = new DataSet();
+        //ds = bl.GetUsersDataSet();
+        //for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        //{
+        //    if (txtEmail.Text == ds.Tables[0].Rows[i]["UserName"].ToString())
+        //    {
+        //        Response.Redirect("~/frmAlreadyRegistered.aspx?UserName=" + txtEmail.Text);
+        //        return;
+        //    }
+        //}
+        try
+        {
+            DataModel.UserRegistrationDE UserRegistrationDE = new DataModel.UserRegistrationDE();
+            SqlConnection connection = new SqlConnection(ConfigurationSettings.AppSettings["conn"]);
+            SqlCommand cmd = null;
+            DataModel.UsersDE DE = new DataModel.UsersDE();
+            int userId = getUserID();
+            string sql = "insert into hp_tblUsers(userId,userName,Password,emailId) values('" + userId + "','" + txtName.Text + "','" + txtPassword.Text + "','" + txtEmail.Text + "')";
+            cmd = new SqlCommand(sql, connection);
+            connection.Open();
+            int j = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (j > 0)
+            {
+                Response.Write("<script language=\"javascript\">alert(\"Registered sucessfully\")</script>");
+                Response.Redirect("frmHome.aspx");
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex.Message);
+        }
+    }
+    
+}
