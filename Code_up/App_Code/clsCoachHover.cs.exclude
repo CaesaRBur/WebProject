@@ -1,0 +1,60 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using BusinessLogic;
+using DataModel;
+using System.ComponentModel;
+
+/// <summary>
+/// Summary description for clsCoachHover
+/// </summary>
+[DataObject(true)]
+public class clsCoachHover
+{
+    private DataSet _coach;
+    public clsCoachHover()
+    {        
+        if (this._coach == null)
+        {
+            this._coach = new DataSet();
+           AdminBL objAdminBL = new AdminBL();
+            this._coach = objAdminBL.getCoachesList();
+            HttpContext.Current.Session["Customers"] = this._coach;
+        }
+    }
+    private DataTable CoachTable//to return the data in to data table
+    {
+        get { return this._coach.Tables[0]; }
+    }
+
+    [DataObjectMethod(DataObjectMethodType.Select)]
+    public DataView Select()//to select the records
+    {
+        this.CoachTable.DefaultView.Sort = "id";
+        return this.CoachTable.DefaultView;
+    }
+
+    [DataObjectMethod(DataObjectMethodType.Update)]
+    public int Update(int originalid, string CoachId, string coachName,int perAgent,int totalCoaches)
+    {
+        DataRow[] rows = this.CoachTable.Select(String.Format("id='{0}'", originalid));
+        if (rows.Length > 0)
+        {
+            AdminBL objAdminBL = new AdminBL();
+            int i = objAdminBL.UpdateCoach(originalid, CoachId, coachName, perAgent,totalCoaches);
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+}
