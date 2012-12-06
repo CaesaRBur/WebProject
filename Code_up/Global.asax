@@ -27,7 +27,7 @@
         Session["UserID"] = null;
         Session["usertype"] = null;
         // Code that runs when a new session is started
-        Response.Redirect("frmSearch.aspx");
+        Response.Redirect("~\\frmSearch.aspx");
     }
 
     void Session_End(object sender, EventArgs e) 
