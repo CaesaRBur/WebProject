@@ -1,5 +1,0 @@
-C:\Users\Dmitriy\Desktop\CaesaR\Air ticket_up\Code_up\TestProject1\bin\Debug\TestProject1.dll
-C:\Users\Dmitriy\Desktop\CaesaR\Air ticket_up\Code_up\TestProject1\bin\Debug\TestProject1.pdb
-C:\Users\Dmitriy\Desktop\CaesaR\Air ticket_up\Code_up\TestProject1\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Dmitriy\Desktop\CaesaR\Air ticket_up\Code_up\TestProject1\obj\Debug\TestProject1.dll
-C:\Users\Dmitriy\Desktop\CaesaR\Air ticket_up\Code_up\TestProject1\obj\Debug\TestProject1.pdb
